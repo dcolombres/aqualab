@@ -1,0 +1,22 @@
+{
+  "name": "aqualab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "homepage": "https://dcolombres.github.io/aqualab/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

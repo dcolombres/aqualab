@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muestra de Imágenes - AQUALAB</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+        }
+        #login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #login-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        #login-form h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        #login-form input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #login-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color: 0.3s ease;
+        }
+        #login-form button:hover {
+            background-color: #2980b9;
+        }
+        header {
+            background: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            max-height: 50px;
+        }
+        #image-mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 5px;
+            width: 100%;
+            min-height: 100vh;
+        }
+        #image-mosaic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-container">
+        <form id="login-form">
+            <h2>Acceso a la Muestra</h2>
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+            <p id="login-error" style="color: red; display: none;">Credenciales incorrectas</p>
+        </form>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <header>
+            <a href="index.html"><img src="img/logo.svg" alt="Aqualab Logo" class="logo"></a>
+        </header>
+        <div id="image-mosaic">
+            <!-- Images will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const mainContent = document.getElementById('main-content');
+        const loginError = document.getElementById('login-error');
+        const imageMosaic = document.getElementById('image-mosaic');
+
+        const images = [
+            "alimentacion.jpg", "alimentacion01.jpg", "alimentacion02.jpg", "BACIUDAD.png", "CAA.png", "canilla.jpg", "CIUDADANIA.png", "compras.jpg", "cotidiano.jpg", "DANIDA.png", "desert.jpg", "detalleAQUA.png", "dettalle.jpg", "directo-caratula.jpg", "directo-caratula01.jpg", "distraccion.jpg", "ESCUELASVERDES.png", "favicon.svg", "higiene-caratula.jpg", "higiene-caratula01.jpg", "idioma-01.png", "idioma-02.png", "indirecto-caratula.jpg", "indirecto-caratula01.jpg", "indumentaria.jpg", "indumentaria01.jpg", "indumentaria02.jpg", "indumentaria03.jpg", "limpieza.jpg", "limpieza01.jpg", "limpieza02.jpg", "logo.svg", "lugarmundo.jpg", "lugarmundo01.jpg", "mascota.jpg", "mascota01.jpg", "placeholder.jpg", "reciclaje.jpeg", "recliclaje01.jpg", "riego.jpg", "riego01.jpg", "riego02.jpg", "riego03.jpg", "tecnologia.jpg", "tecnologia01.jpg", "tecnologia02.jpg", "tecnologia03.jpg", "transporte.jpg", "transporte01.jpg", "transporte02.jpg", "transporte03.jpg"
+        ];
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'carga' && password === 'imagenes') {
+                document.getElementById('login-container').style.display = 'none';
+                mainContent.style.display = 'block';
+                loadImages();
+            } else {
+                loginError.style.display = 'block';
+            }
+        });
+
+        function loadImages() {
+            images.forEach(imageName => {
+                const img = document.createElement('img');
+                img.src = 'img/' + imageName;
+                imageMosaic.appendChild(img);
+            });
+        }
+    </script>
+</body>
+</html>
