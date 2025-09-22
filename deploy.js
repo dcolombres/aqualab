@@ -14,7 +14,7 @@ exec('node generate-image-list.js', (err, stdout, stderr) => {
             'index.html',
             'muestra.html',
             'style.css',
-            'img/**/',
+            'img',
             'images.json',
             'iconos-aqualab.pdf',
             'imgtool.html'
