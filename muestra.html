@@ -160,7 +160,7 @@
 
         async function loadImages() {
             try {
-                const response = await fetch('/api/images');
+                const response = await fetch('images.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
