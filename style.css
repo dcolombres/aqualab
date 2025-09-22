@@ -1,0 +1,183 @@
+:root {
+    --primary-color: #08213b;
+    --secondary-color: #0056b3;
+    --text-color: #333;
+    --background-color: #fff;
+    --footer-bg-color: #08213b;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    height: 50px;
+}
+
+.lang-switcher a {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.lang-switcher a.active {
+    background-image: url('img/idioma-01.png');
+    color: white;
+}
+
+.lang-switcher a:not(.active) {
+    background-image: url('img/idioma-02.png');
+    color: var(--primary-color);
+}
+
+main {
+    text-align: center;
+    padding: 2rem 1rem;
+    padding-bottom: 100px;
+}
+
+.hero-image {
+    display: none; /* Hide the img tag */
+}
+
+.main-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 150px; /* Add margin to push buttons down */
+}
+
+.btn {
+    display: block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-secondary {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+footer {
+    background-color: var(--footer-bg-color);
+    padding: 2rem 1rem;
+}
+
+.footer-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-logos img {
+    max-height: 40px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.footer-logos a:hover img {
+    filter: none;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    .logo {
+        height: 70px;
+    }
+
+    main {
+        padding: 4rem 1rem;
+        background-size: 40%;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .btn-container {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 250px; /* Adjust margin for desktop */
+    }
+
+    .btn {
+        width: auto;
+        padding: 1rem 2rem;
+    }
+    
+    .footer-logos {
+        justify-content: space-around;
+    }
+
+    .footer-logos img {
+        max-height: 60px;
+    }
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 600px; /* Adjust as needed */
+    background-image: url('img/detalleAQUA.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    z-index: -1;
+}
