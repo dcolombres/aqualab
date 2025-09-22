@@ -1,6 +1,8 @@
 const ghpages = require('gh-pages');
 const { exec } = require('child_process');
 
+ghpages.clean(); // Clean the cache
+
 console.log('Generating image list...');
 exec('node generate-image-list.js', (err, stdout, stderr) => {
     if (err) {
