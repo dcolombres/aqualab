@@ -9,7 +9,17 @@ exec('node generate-image-list.js', (err, stdout, stderr) => {
     }
     console.log(stdout);
     console.log('Publishing to GitHub Pages...');
-    ghpages.publish('publish', function(err) {
+    ghpages.publish('.', { // Publish from the root directory
+        src: [
+            'index.html',
+            'muestra.html',
+            'style.css',
+            'img/**/',
+            'images.json',
+            'iconos-aqualab.pdf',
+            'imgtool.html'
+        ]
+    }, function(err) {
         if (err) {
             console.error(err);
         } else {
