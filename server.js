@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
@@ -53,6 +54,18 @@ app.use(express.static(__dirname));
 // Handle image uploads
 app.post('/upload', isAuthenticated, upload.single('image'), (req, res) => {
     res.send('Image uploaded successfully');
+});
+
+// Endpoint to get the list of images
+app.get('/api/images', (req, res) => {
+    const imgDir = path.join(__dirname, 'img');
+    fs.readdir(imgDir, (err, files) => {
+        if (err) {
+            return res.status(500).send('Unable to scan directory: ' + err);
+        }
+        const jpgFiles = files.filter(file => file.toLowerCase().endsWith('.jpg'));
+        res.json(jpgFiles);
+    });
 });
 
 app.listen(port, () => {
