@@ -20,6 +20,7 @@ try {
     process.chdir(publishDir);
 
     execSync('git init', { stdio: 'inherit' });
+    execSync('git checkout -b main', { stdio: 'inherit' }); // Explicitly create main branch
     execSync('git add .', { stdio: 'inherit' });
     // Use --quiet to avoid error if there are no changes to commit
     execSync('git commit -m "Deploy to gh-pages" --quiet || true', { stdio: 'inherit' });
